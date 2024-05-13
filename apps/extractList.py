@@ -9,6 +9,9 @@ import os
 import csv
 import time
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
+
+
 
 def process_form_data(url):
     # Set up Chrome options
@@ -17,6 +20,8 @@ def process_form_data(url):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    
     # Create a new instance of the Chrome driver
     driver = webdriver.Chrome(options=options)
 
